@@ -13,3 +13,7 @@ DB_USERNAME => Usuário do banco de dados.
 DB_PASSWORD => Senha do usuário do banco de dados.
 
 DB_HOST => Endereço do banco de dados.
+
+
+### App Rodando
+![image](https://github.com/user-attachments/assets/26ad4b45-8b5d-4a35-a4f4-bb7158d99998)
