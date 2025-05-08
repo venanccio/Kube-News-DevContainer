@@ -1,0 +1,33 @@
+@baseUrl = http://localhost:8080
+
+### Variáveis de ambiente
+@authToken = seu-token-aqui
+
+### Obter todas as notícias
+GET {{baseUrl}}/news HTTP/1.1
+
+### Obter uma notícia específica
+GET {{baseUrl}}/news/1 HTTP/1.1
+
+### Criar uma nova notícia
+POST {{baseUrl}}/news HTTP/1.1
+Content-Type: application/json
+
+{
+  "title": "Nova funcionalidade no Kube News",
+  "content": "Estamos lançando uma nova funcionalidade incrível!",
+  "author": "Desenvolvedor"
+}
+
+### Atualizar uma notícia
+PUT {{baseUrl}}/news/1 HTTP/1.1
+Content-Type: application/json
+
+{
+  "title": "Título atualizado",
+  "content": "Conteúdo atualizado",
+  "author": "Autor atualizado"
+}
+
+### Excluir uma notícia
+DELETE {{baseUrl}}/news/1 HTTP/1.1

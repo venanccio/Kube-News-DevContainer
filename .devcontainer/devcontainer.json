@@ -7,10 +7,16 @@
     "vscode": {
       "extensions": [
         "dbaeumer.vscode-eslint",
-        "ms-azuretools.vscode-docker"
+        "ms-azuretools.vscode-docker",
+        "humao.rest-client"
       ]
     }
   },
+  "settings": {
+    "terminal.integrated.defaultProfile.linux": "bash"
+  },
   "forwardPorts": [3000, 5432],
-  "postCreateCommand": "npm install"
+  "containerUser": "root",
+  "postCreateCommand": "mkdir -p /workspace/node_modules && chown -R node:node /workspace/node_modules && npm install",
+  "remoteUser": "node"
 }
