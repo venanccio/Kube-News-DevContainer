@@ -1,10 +1,10 @@
 {
   "name": "Kube News Dev Environment",
-  "dockerFile": "Dockerfile.dev",
+  "dockerFile": ".devcontainer/Dockerfile.dev",
+  "context": ".",
+  "appPort": [8080],
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
   "workspaceFolder": "/workspace",
-  "mounts": [
-    "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached"
-  ],
   "customizations": {
     "vscode": {
       "extensions": [
@@ -17,10 +17,9 @@
       }
     }
   },
-  "forwardPorts": [8080],
   "remoteUser": "node",
   "postCreateCommand": "npm install",
   "features": {
     "ghcr.io/devcontainers/features/node:1": {}
   }
-}
+} 

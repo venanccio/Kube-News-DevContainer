@@ -1,3 +1,52 @@
+# Kube News - Ambiente de Desenvolvimento e Produção
+
+Este projeto contém configurações separadas para ambientes de desenvolvimento e produção.
+
+## Estrutura do Projeto
+
+```
+.
+├── .devcontainer/
+│   ├── Dockerfile.dev
+│   └── docker-compose.override.yml
+├── compose.yml
+├── Dockerfile
+└── README.md
+```
+
+## Como Executar
+
+### Ambiente de Desenvolvimento
+
+O ambiente de desenvolvimento inclui hot reload e outras ferramentas de desenvolvimento.
+
+1. Abra o projeto no VS Code com Dev Containers
+2. O ambiente será configurado automaticamente
+3. A aplicação estará disponível em `http://localhost:8080`
+
+### Ambiente de Produção
+
+Para executar o ambiente de produção:
+
+```bash
+docker compose up -d
+```
+
+A aplicação estará disponível em `http://localhost:8080`
+
+## Variáveis de Ambiente
+
+As seguintes variáveis de ambiente podem ser configuradas:
+
+- `DB_USER`: Usuário do banco de dados (default: kubenews)
+- `DB_PASSWORD`: Senha do banco de dados (default: Pg#123)
+- `DB_NAME`: Nome do banco de dados (default: kubenews)
+
+## Diferenças entre os Ambientes
+
+- **Desenvolvimento**: Inclui hot reload, volumes montados para desenvolvimento ao vivo
+- **Produção**: Otimizado para performance e segurança, sem ferramentas de desenvolvimento
+
 # Projeto kube-news
 
 ### Objetivo
