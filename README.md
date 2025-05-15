@@ -1,51 +1,102 @@
-# Kube News - Ambiente de Desenvolvimento e Produção
+# Kube News
 
-Este projeto contém configurações separadas para ambientes de desenvolvimento e produção.
+Uma aplicação em NodeJS para demonstração do uso de containers e Kubernetes.
 
-## Estrutura do Projeto
+## 🚀 Início Rápido com VS Code
 
+1. Instale as extensões necessárias:
+   - Docker
+   - Dev Containers
+   - Remote Development
+
+2. Clone o repositório:
+   ```bash
+   git clone <seu-repositorio>
+   cd kube-news
+   ```
+
+3. No VS Code:
+   - Pressione F1 ou Ctrl+Shift+P
+   - Digite: "Dev Containers: Open Folder in Container"
+   - Selecione a pasta do projeto
+
+O VS Code irá:
+- Construir o container de desenvolvimento
+- Configurar o ambiente
+- Instalar as extensões necessárias
+- Iniciar o servidor em modo de desenvolvimento com hot-reload
+
+## 🛠️ Ambientes
+
+### Desenvolvimento
+- Hot-reload ativado
+- Nodemon para atualização automática
+- Montagem de volume para desenvolvimento ao vivo
+- PostgreSQL em modo de desenvolvimento
+
+### Produção
+- Otimizado para performance
+- Multi-stage build para imagem menor
+- Configurações de segurança aprimoradas
+
+## ⚙️ Configuração
+
+Crie um arquivo `.env` na raiz do projeto:
+
+```env
+DB_HOST=db
+DB_PORT=5432
+DB_USERNAME=seu_usuario
+DB_PASSWORD=sua_senha
+DB_DATABASE=seu_banco
 ```
-.
-├── .devcontainer/
-│   ├── Dockerfile.dev
-│   └── docker-compose.override.yml
-├── compose.yml
-├── Dockerfile
-└── README.md
-```
 
-## Como Executar
+## 🏃‍♂️ Rodando Manualmente
 
-### Ambiente de Desenvolvimento
+Se preferir rodar sem o VS Code, use:
 
-O ambiente de desenvolvimento inclui hot reload e outras ferramentas de desenvolvimento.
-
-1. Abra o projeto no VS Code com Dev Containers
-2. O ambiente será configurado automaticamente
-3. A aplicação estará disponível em `http://localhost:8080`
-
-### Ambiente de Produção
-
-Para executar o ambiente de produção:
-
+### Desenvolvimento
 ```bash
-docker compose up -d
+docker compose -f compose.yml -f .devcontainer/docker-compose.override.yml up
 ```
 
-A aplicação estará disponível em `http://localhost:8080`
+### Produção
+```bash
+docker compose up
+```
 
-## Variáveis de Ambiente
+## 🔒 Segurança
 
-As seguintes variáveis de ambiente podem ser configuradas:
+- Nunca commit arquivos .env
+- Use secrets em produção
+- O usuário node é usado por padrão (não root)
+- Imagens base oficiais e atualizadas
 
-- `DB_USER`: Usuário do banco de dados (default: kubenews)
-- `DB_PASSWORD`: Senha do banco de dados (default: Pg#123)
-- `DB_NAME`: Nome do banco de dados (default: kubenews)
+## 🌐 Endpoints
 
-## Diferenças entre os Ambientes
+- `GET /` - Página principal
+- `GET /api/news` - Lista todas as notícias
+- `POST /api/news` - Cria uma nova notícia
 
-- **Desenvolvimento**: Inclui hot reload, volumes montados para desenvolvimento ao vivo
-- **Produção**: Otimizado para performance e segurança, sem ferramentas de desenvolvimento
+## 📦 Tecnologias
+
+- Node.js
+- Express
+- PostgreSQL
+- Docker
+- VS Code Dev Containers
+
+## 🤝 Contribuindo
+
+1. Fork o projeto
+2. Crie sua Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit suas mudanças (`git commit -m 'Add some AmazingFeature'`)
+4. Push para a Branch (`git push origin feature/AmazingFeature`)
+5. Abra um Pull Request
+
+## 📝 Licença
+
+Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
 # Projeto kube-news
 
